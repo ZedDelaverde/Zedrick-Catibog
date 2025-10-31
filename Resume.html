@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zedrick Catibog — Resume</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="glass-header">
+    <div class="container nav-container">
+      <h1 class="logo">Zedrick <span>Catibog</span></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h2>Hello, I’m <span>Zedrick Catibog</span></h2>
+      <p>
+        A creative and detail-oriented web developer from the Philippines. I design and code beautiful,
+        user-friendly websites and enjoy turning ideas into digital reality.
+      </p>
+
+      <div class="buttons">
+        <a href="#contact" class="btn primary">Hire Me</a>
+        <a href="#" class="btn secondary" download="Zedrick_Catibog_Resume.pdf">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="profile.jpg" alt="Zedrick Catibog" />
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="about-text">
+        I’m passionate about web development and design, blending creativity and functionality
+        to deliver exceptional digital experiences. I specialize in crafting responsive websites
+        using HTML, CSS, JavaScript, and PHP.
+      </p>
+
+      <div class="skills-container">
+        <div class="skill"><p>HTML</p><div class="progress"><span style="width: 95%;"></span></div></div>
+        <div class="skill"><p>CSS</p><div class="progress"><span style="width: 90%;"></span></div></div>
+        <div class="skill"><p>JavaScript</p><div class="progress"><span style="width: 85%;"></span></div></div>
+        <div class="skill"><p>PHP</p><div class="progress"><span style="width: 75%;"></span></div></div>
+        <div class="skill"><p>MySQL</p><div class="progress"><span style="width: 70%;"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p class="contact-intro">Feel free to reach out for collaborations or freelance opportunities.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info glass-card">
+          <p><strong>Email:</strong> <a href="mailto:zedrickcatibog123@gmail.com">zedrickcatibog123@gmail.com</a></p>
+          <p><strong>Phone:</strong> 0930 492 9488</p>
+          <p><strong>Location:</strong> Philippines</p>
+        </div>
+
+        <form class="contact-form glass-card" action="mailto:zedrickcatibog123@gmail.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Your Message..." rows="5" required></textarea>
+          <button type="submit" class="btn primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Zedrick Catibog — Designed with ❤️</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) body.classList.add(savedTheme);
+    if (body.classList.contains('light-mode')) toggleButton.textContent = '☀️';
+
+    // Toggle theme
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      const isLight = body.classList.contains('light-mode');
+      toggleButton.textContent = isLight ? '☀️' : '🌙';
+      localStorage.setItem('theme', isLight ? 'light-mode' : '');
+    });
+  </script>
+</body>
+</html>
